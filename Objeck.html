@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object</title>
+</head>
+<body>
+    <h1>Selamat Datang di Web Chek Khodam</h1>
+    <input type="text" name="" id="ipt" placeholder="Masukkan Namamu..">
+    <button onclick="btn()">sumbit</button>
+    <h1 id="nama"></h1>
+    <div id="img"></div>
+    <h1 id="khodam"></h1>
+
+
+    <script>
+        function btn() {
+            const input = document.getElementById('ipt').value;
+
+            // Mendefinisikan objek khodam
+            const khodams = {
+                khodam1: {  
+                    foto: 'foto/Cuplikan layar 2024-10-15 225247.png',
+                    namaKhodam: 'Patung Liberty'
+                },
+                khodam2: {  
+                    foto: 'foto/Cuplikan layar 2024-10-15 225438.png',
+                    namaKhodam: 'Angin Kelip',
+                },
+                khodam3: {  
+                    foto: 'foto/Cuplikan layar 2024-10-15 225438.png',
+                    namaKhodam: 'Pajak Lembur'
+                }
+            };
+
+            // Mendapatkan array dari nama khodam
+            const keys = Object.keys(khodams);
+            const index = Math.floor(Math.random() * keys.length);
+            const selectedKhodam = khodams[keys[index]];
+
+            // Menampilkan nama dan gambar
+            document.getElementById('nama').innerText = input;
+            document.getElementById('khodam').innerText = selectedKhodam.namaKhodam;
+
+            // Membuat elemen gambar dan menampilkannya
+            const imgElement = document.createElement('img');
+            imgElement.src = selectedKhodam.foto;
+            imgElement.alt = selectedKhodam.namaKhodam;
+            imgElement.style.width = '200px'; // Atur ukuran gambar sesuai kebutuhan
+
+            // Menghapus gambar lama jika ada sebelum menambahkan gambar baru
+            const imgDiv = document.getElementById('img');
+            imgDiv.innerHTML = ''; // Menghapus konten lama
+            imgDiv.appendChild(imgElement); // Menambahkan gambar baru
+
+            document.getElementById('ipt').value='';
+        }
+    </script>
+</body>
+</html>
