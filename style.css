@@ -44,7 +44,7 @@
     font-weight: 500;
     color: red;
     text-shadow: 0 0 5px, 0 5px 10px darkred;
-    animation: typing 4s steps(29) forwards, blink 0.5s step-end infinite;
+    animation: typing 10s steps(29) forwards, blink 0.5s step-end infinite;
     overflow: hidden;
     white-space: nowrap;
 }
