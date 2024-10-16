@@ -66,7 +66,7 @@
 }
 
 
-@media (max-width: 576px) {
+@media (max-width: 570px) {
     .container {
         height: auto;
         padding: 20px;
@@ -82,8 +82,8 @@
 
     .display h2 {
         font-size: 16px;
-        margin-left: 10px;
-        margin-right: 10px;
+        margin-left: 50px;
+        margin-right: 50px;
     }
 
 }
@@ -186,9 +186,12 @@ img:hover {
     display: flex;
     margin-top: 5%;
     text-shadow: 0 0 5px darkred, 0 5px 10px darkred, -5px 5px 15px darkred;
-    animation: blinkText 0.5s infinite alternate;
+    animation: blinkText 1.5s infinite alternate;
 }
 
+#img {
+    animation: blinkText 1.5s infinite alternate;
+}
 
 @keyframes blinkText {
     0% {
@@ -196,7 +199,11 @@ img:hover {
     }
 
     50% {
-        opacity: 0;
+        opacity: 0.8;
+    }
+
+    75% {
+        opacity: 0.5;
     }
 
     100% {
