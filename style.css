@@ -33,11 +33,17 @@
 
 .container {
     position: absolute;
-    width: 800px;
+    width: 927px;
     text-align: center;
     margin-top: 50px;
 }
 
+.container {
+
+    /* Menetapkan tinggi kontainer jika ingin elemen h1 terpusat secara vertikal */
+    overflow: hidden;
+    /* Menghindari overflow pada kontainer */
+}
 
 .container h1 {
     margin-bottom: 30px;
@@ -45,10 +51,20 @@
     font-weight: 500;
     color: red;
     text-shadow: 0 0 5px, 0 5px 10px darkred;
-    animation: typing 10s steps(29) forwards, blink 0.5s step-end infinite;
-    overflow: hidden;
+    animation: typing 5s steps(30) forwards, blink 0.5s step-end infinite;
     white-space: nowrap;
 }
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
 
 @media (max-width: 576px) {
     .container {
@@ -110,15 +126,6 @@ button:hover {
     background: linear-gradient(90deg, black, grey);
 }
 
-@keyframes typing {
-    from {
-        width: 0;
-    }
-
-    to {
-        width: 114%;
-    }
-}
 
 img {
     border-radius: 10px;
@@ -165,4 +172,29 @@ img:hover {
     height: 500px;
     width: 500px;
     margin: 0 auto;
+}
+
+.display h2 {
+    font-size: 40px;
+    color: red;
+    justify-content: end;
+    display: flex;
+    margin-top: 5%;
+    text-shadow: 0 0 5px darkred, 0 5px 10px darkred, -5px 5px 15px darkred;
+    animation: blinkText 0.5s infinite alternate;
+}
+
+
+@keyframes blinkText {
+    0% {
+        opacity: 0.2;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
