@@ -1,0 +1,167 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Creepster", system-ui;
+}
+
+.darah {
+    width: 200px;
+    mix-blend-mode: multiply;
+    position: absolute;
+    opacity: 0.5;
+    animation: fadeIn forwards;
+    top: -50px;
+    left: 70%;
+    transform: translateX(-50px);
+    animation-delay: 0;
+    z-index: 1;
+}
+
+.card {
+    display: flex;
+    justify-content: center;
+    max-width: 100%;
+    position: relative;
+    height: 100vh;
+    background-image: url('foto/black-photoshop-background-png-15.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    align-items: center;
+}
+
+.container {
+    position: absolute;
+    width: 800px;
+    text-align: center;
+    margin-top: 50px;
+}
+
+
+.container h1 {
+    margin-bottom: 30px;
+    font-size: 64px;
+    font-weight: 500;
+    color: red;
+    text-shadow: 0 0 5px, 0 5px 10px darkred;
+    animation: typing 4s steps(29) forwards, blink 0.5s step-end infinite;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+@media (max-width: 576px) {
+    .container {
+        height: auto;
+        padding: 20px;
+    }
+
+    .container h1 {
+        font-size: 36px;
+        white-space: normal;
+        animation: move 5s linear infinite;
+        margin-bottom: 40px;
+        margin-top: 30px;
+    }
+
+
+}
+
+@keyframes move {
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.display h2 {
+    color: red;
+    text-shadow: 0 0 3px, 0 5px 5px darkred;
+    font-size: 30px;
+    font-weight: 400;
+}
+
+
+#ipt {
+    padding: 10px 25px;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+}
+
+
+
+button {
+    padding: 10px 25px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    background: linear-gradient(90deg, grey, black);
+    margin-left: 10px;
+    cursor: pointer;
+    transition: background 3.5s ease;
+    margin-bottom: 50px;
+}
+
+button:hover {
+    background: linear-gradient(90deg, black, grey);
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 114%;
+    }
+}
+
+img {
+    border-radius: 10px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+
+img:hover {
+    transform: translateY(180deg);
+    transition: transform 0.3s ease;
+}
+
+.loader {
+    display: none;
+    border: 10px solid transparent;
+    height: 50px;
+    width: 50px;
+    border-top: 10px solid darkred;
+    border-right: 10px solid darkred;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        opacity: 0.5;
+        transform: rotate(0deg);
+        animation: smooth;
+    }
+
+    50% {
+        opacity: 0.8;
+        transform: rotate(180deg);
+    }
+
+    100% {
+        opacity: 0.9;
+        transform: rotate(360deg);
+    }
+}
+
+.display {
+    height: 500px;
+    width: 500px;
+    margin: 0 auto;
+}

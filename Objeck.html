@@ -1,61 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Object</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Creepster&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
-    <h1>Selamat Datang di Web Chek Khodam</h1>
-    <input type="text" name="" id="ipt" placeholder="Masukkan Namamu..">
-    <button onclick="btn()">sumbit</button>
-    <h1 id="nama"></h1>
-    <div id="img"></div>
-    <h1 id="khodam"></h1>
+    <img src="foto/darah-asli.jpg" class="darah" alt="">
+    <div class="card">
+        <div class="loader" style="display: none;"></div> <!-- Loader disembunyikan saat awal -->
+        <div class="container">
+            <h1>Selamat Datang di Web Chek Khodam!!!</h1>
+            <input type="text" name="" id="ipt" placeholder="Masukkan Namamu..">
+            <button onclick="btn()">sumbit</button>
+            <div class="display">
+                <h2 id="nama" style="display: none;"></h2> <!-- Menyembunyikan elemen nama -->
+                <div id="img" style="display: none;"></div> <!-- Menyembunyikan elemen img -->
+                <h2 id="khodam" style="display: none;"></h2> <!-- Menyembunyikan elemen khodam -->
+            </div>
+        </div>
+    </div>
 
 
     <script>
         function btn() {
             const input = document.getElementById('ipt').value;
+            const uppercaseInput = input.charAt(0).toUpperCase() + input.slice(1);
 
             // Mendefinisikan objek khodam
             const khodams = {
-                khodam1: {  
-                    foto: 'foto/Cuplikan layar 2024-10-15 225247.png',
-                    namaKhodam: 'Patung Liberty'
+                khodam1: {
+                    foto: 'foto/susterNgesot.jpg',
+                    namaKhodam: 'Suster Ngesot Go-Food'
                 },
-                khodam2: {  
-                    foto: 'foto/Cuplikan layar 2024-10-15 225438.png',
-                    namaKhodam: 'Angin Kelip',
+                khodam2: {
+                    foto: 'foto/kuntilanak.jpg',
+                    namaKhodam: 'Kuntilanak Selfie',
                 },
-                khodam3: {  
-                    foto: 'foto/Cuplikan layar 2024-10-15 225438.png',
-                    namaKhodam: 'Pajak Lembur'
-                }
+                khodam3: {
+                    foto: 'foto/weweGombel.jpg',
+                    namaKhodam: 'Wewe Gombel'
+                },
+                khodam4: {
+                    foto: "foto/jenglot.jpg",
+                    namaKhodam: 'Jenglot Minta Jodoh'
+                },
+                khodam5: {
+                    foto: "foto/kuntilanak merah.jpg",
+                    namaKhodam: 'Kuntilanak Merah'
+                },
+                khodam4: {
+                    foto: "foto/yurei.jpg",
+                    namaKhodam: 'Yurei'
+                },
             };
 
-            // Mendapatkan array dari nama khodam
             const keys = Object.keys(khodams);
             const index = Math.floor(Math.random() * keys.length);
             const selectedKhodam = khodams[keys[index]];
 
-            // Menampilkan nama dan gambar
-            document.getElementById('nama').innerText = input;
-            document.getElementById('khodam').innerText = selectedKhodam.namaKhodam;
-
-            // Membuat elemen gambar dan menampilkannya
-            const imgElement = document.createElement('img');
-            imgElement.src = selectedKhodam.foto;
-            imgElement.alt = selectedKhodam.namaKhodam;
-            imgElement.style.width = '200px'; // Atur ukuran gambar sesuai kebutuhan
-
-            // Menghapus gambar lama jika ada sebelum menambahkan gambar baru
+            const loader = document.getElementsByClassName('loader')[0];
+            const namaElement = document.getElementById('nama');
             const imgDiv = document.getElementById('img');
-            imgDiv.innerHTML = ''; // Menghapus konten lama
-            imgDiv.appendChild(imgElement); // Menambahkan gambar baru
+            const khodamElement = document.getElementById('khodam');
 
-            document.getElementById('ipt').value='';
+            // Menyembunyikan elemen nama, img, dan khodam, serta menampilkan loader
+            namaElement.style.display = 'none';
+            imgDiv.style.display = 'none';
+            khodamElement.style.display = 'none';
+            loader.style.display = 'block';
+
+            setTimeout(() => {
+                // Menampilkan hasil setelah loader selesai
+                namaElement.innerText = `${uppercaseInput} Khodam kamu adalah..`;
+                khodamElement.innerText = selectedKhodam.namaKhodam;
+
+                const imgElement = document.createElement('img');
+                imgElement.src = selectedKhodam.foto;
+                imgElement.alt = selectedKhodam.namaKhodam;
+                imgElement.style.width = '200px'; // Atur ukuran gambar sesuai kebutuhan
+
+                imgDiv.innerHTML = ''; // Menghapus konten lama
+                imgDiv.appendChild(imgElement); // Menambahkan gambar baru
+
+                loader.style.display = 'none'; // Sembunyikan loader setelah selesai
+                namaElement.style.display = 'block'; // Tampilkan kembali elemen nama
+                imgDiv.style.display = 'block'; // Tampilkan kembali elemen img
+                khodamElement.style.display = 'block'; // Tampilkan kembali elemen khodam
+            }, 2000);
+
+            document.getElementById('ipt').value = '';
         }
     </script>
 </body>
+
 </html>
