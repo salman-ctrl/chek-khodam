@@ -76,7 +76,7 @@
         font-size: 36px;
         white-space: normal;
         animation: move 5s linear infinite;
-        margin-bottom: 40px;
+        margin-bottom: 20px;
         margin-top: 30px;
     }
 
@@ -101,7 +101,7 @@
 .display h2 {
     color: red;
     text-shadow: 0 0 3px, 0 5px 5px darkred;
-    font-size: 30px;
+    font-size: 20px;
     font-weight: 400;
 }
 
